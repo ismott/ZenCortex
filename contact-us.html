@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="legal-wrap">
+  <a class="back" href="index.html">&larr; Back to home</a>
+  <h1>Contact Us</h1>
+  <p class="updated">We'd love to hear from you</p>
+
+  <p>If you have any questions, concerns, or feedback about the Site or any product mentioned on it, please reach out using the information or form below.</p>
+
+  <h2>Email</h2>
+  <p>support@example.com</p>
+
+  <h2>Mailing Address</h2>
+  <p>123 Example Street, Suite 100<br>Anytown, ST 00000<br>United States</p>
+
+  <h2>Send Us a Message</h2>
+  <form onsubmit="event.preventDefault(); alert('Thanks! This is a demo form — connect it to your email service or backend.');">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+
+    <button class="submit" type="submit">Send Message</button>
+  </form>
+
+  <p class="updated" style="margin-top:30px;">This site is not part of the Google website or Google Inc. Additionally, this site is NOT endorsed by Google in any way.</p>
+</div>
+</body>
+</html>

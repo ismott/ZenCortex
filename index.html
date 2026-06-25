@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZenCortex — Special Offer</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+
+    /* Background image (site background) */
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background-image: url("bg-desktop.png");
+      background-size: cover;
+      background-position: top center;
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+
+    @media (max-width:600px) {
+      body {
+        background-image: url("bg-mobile.png");
+      }
+    }
+
+    /* Overlay that blurs the background behind the popup */
+    .blur-overlay {
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      background: rgba(13, 24, 18, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 10;
+    }
+
+    /* Cookie Settings modal */
+    .cookie-modal {
+      background: #ffffff;
+      border: 1.5px solid #d9dde0;
+      border-radius: 14px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      max-width: 560px;
+      width: 100%;
+      padding: 32px 36px 28px;
+      position: relative;
+    }
+
+    .cookie-modal .close {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      width: 28px;
+      height: 28px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      color: #9aa3ab;
+      font-size: 22px;
+      line-height: 1;
+      padding: 0;
+    }
+
+    .cookie-modal .close:hover,
+    .cookie-modal .close:focus-visible {
+      color: #5b6168;
+    }
+
+    .cookie-modal h2 {
+      margin: 0 0 18px;
+      text-align: center;
+      font-size: clamp(20px, 4vw, 26px);
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+
+    .cookie-modal p {
+      margin: 0 auto 26px;
+      max-width: 480px;
+      text-align: center;
+      font-size: clamp(13px, 2.4vw, 15px);
+      line-height: 1.6;
+      color: #3c4146;
+    }
+
+    .cookie-modal .actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .cookie-modal button.choice {
+      flex: 1 1 200px;
+      padding: 14px 18px;
+      border-radius: 10px;
+      font-size: clamp(14px, 2.4vw, 15px);
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .cookie-modal .accept {
+      background: #161616;
+      color: #ffffff;
+      border: none;
+    }
+
+    .cookie-modal .accept:hover {
+      background: #000000;
+    }
+
+    .cookie-modal .decline {
+      background: #ffffff;
+      color: #161616;
+      border: 1.5px solid #c9ced3;
+    }
+
+    .cookie-modal .decline:hover {
+      background: #f5f6f7;
+    }
+
+    @media (max-width:480px) {
+      .cookie-modal {
+        padding: 26px 20px 22px;
+        border-radius: 12px;
+      }
+
+      .cookie-modal .actions {
+        flex-direction: column;
+      }
+
+      .cookie-modal button.choice {
+        flex: 1 1 auto;
+      }
+    }
+
+    /* Footer */
+    footer {
+      position: relative;
+      z-index: 5;
+      background: #0f1c14;
+      color: #cfe0d5;
+      padding: 26px 20px 30px;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    footer .links {
+      margin-bottom: 14px;
+    }
+
+    footer .links a {
+      color: #f3f8f4;
+      text-decoration: none;
+      margin: 0 12px;
+      border-bottom: 1px solid transparent;
+    }
+
+    footer .links a:hover,
+    footer .links a:focus-visible {
+      border-bottom-color: #f4c14a;
+    }
+
+    footer .disclaimer {
+      max-width: 680px;
+      margin: 0 auto;
+      color: #9fb3a7;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="blur-overlay" id="blurOverlay">
+    <a href="https://zencortex24.com/d/order-now.php#aff=israeljmotaa7f7">
+      <div class="cookie-modal" href id="cookieModal">
+        <button class="close" id="closeBtn" aria-label="Close">&times;</button>
+        <h2>Cookie Settings</h2>
+        <p>We use cookies and similar technologies to help personalize content, tailor and measure ads, and provide a
+          better experience. By clicking accept, you agree to this as described in our Cookie Policy.</p>
+        <div class="actions">
+          <button class="choice accept" id="acceptBtn">Yes, I accept</button>
+          <button class="choice decline" id="declineBtn">No, I do not accept</button>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <footer>
+    <div class="links">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-of-service.html">Terms of Service</a>
+      <a href="contact-us.html">Contact Us</a>
+    </div>
+    <p class="disclaimer">
+      This site is not part of the Google website or Google Inc.
+      Additionally, this site is NOT endorsed by Google in any way.
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById('closeBtn').addEventListener('click', function () {
+      document.getElementById('blurOverlay').style.display = 'none';
+    });
+    document.getElementById('acceptBtn').addEventListener('click', function () {
+      localStorage.setItem('cookieConsent', 'accepted');
+      document.getElementById('blurOverlay').style.display = 'none';
+    });
+    document.getElementById('declineBtn').addEventListener('click', function () {
+      localStorage.setItem('cookieConsent', 'declined');
+      document.getElementById('blurOverlay').style.display = 'none';
+    });
+  </script>
+
+</body>
+
+</html>
